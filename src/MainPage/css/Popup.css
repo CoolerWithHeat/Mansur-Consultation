@@ -1,0 +1,136 @@
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    width: 35%;
+    height: auto;
+}
+  
+.popup-content {
+    align-items: center;
+    text-align: center;
+}
+
+.SuccessImage {
+    width: 35%;
+    height: 35%;
+}
+
+
+
+@media (max-width:460px){
+
+    .InfoField2{
+
+        width: 90%;
+        height: 100px;
+        display: block;
+        margin: auto;
+        
+    }
+    
+    .InfoField{
+        width: 90%;
+        height: 100px;
+        display: block;
+        margin: auto;
+    }
+    
+    .fieldImage{
+    
+        width: 80%;
+        height: 65%;
+        display: block;
+        margin: auto;
+        
+    
+    }
+    
+    .infofieldtext{
+        font-size: 55%;
+        /* float: left; */
+        margin-left: -5px;
+    }
+
+    .popup{
+        font-size: 13px;
+    }
+      
+}
+
+
+@media (min-width:460px) and (max-width:1000px){
+    .InfoField2{
+
+        width: 90%;
+        height: 100px;
+        display: block;
+        margin: auto;
+    }
+    
+    .InfoField{
+        width: 90%;
+        height: 100px;
+        display: block;
+        margin: auto;
+    }
+    
+    .fieldImage{
+    
+        width: 30%;
+        height: 70%;
+        display: block;
+        margin: auto;
+    
+    }
+    
+    .infofieldtext{
+        font-size: 100%;
+    }
+
+    .popup{
+        width: 54%;
+    }
+      
+}
+
+@media (min-width:1000px){
+    .InfoField2{
+
+        width: 90%;
+        height: 100px;
+        display: block;
+        margin: auto;
+    }
+    
+    .InfoField{
+        width: 90%;
+        height: 100px;
+        display: block;
+        margin: auto;
+    }
+    
+    .fieldImage{
+    
+        width: 100px;
+        height: 100px;
+        display: block;
+        margin: auto;
+    
+    }
+    
+    .infofieldtext{
+        font-size: 115%;
+    }
+
+    .popup{
+        max-width: 30%;
+        height: 45%;
+    }
+}

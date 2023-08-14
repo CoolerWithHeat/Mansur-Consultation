@@ -101,10 +101,13 @@ export function MainPage(){
             document.removeEventListener('click', ClosePopup)}
         else
             Update_successSignal(Main=>"contact")
-            
+        
     }
 
     React.useEffect(Main=>{
+        if (window.location.protocol === 'http:') {
+            window.location.href = `https://${window.location.host}${window.location.pathname}${window.location.search}`;
+          }
         const SendOnEnter = (event) => {
             if (event.key === 'Enter') {
                 TriggerButton.current.click()

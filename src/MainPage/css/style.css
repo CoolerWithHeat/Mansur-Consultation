@@ -207,7 +207,7 @@ h6,
     background: var(--light);
     border-radius: 100% 100% 0 0;
     box-shadow: 0px -10px 5px #EEEEEE;
-    transition: .5s;
+    transition: .3s;
 }
 
 .service-item:hover::after {
@@ -272,7 +272,7 @@ h6,
     background: var(--primary);
     font-size: 22px;
     border-radius: 45px;
-    transition: .5s;
+    transition: .1s;
 }
 
 .testimonial-carousel .owl-nav .owl-prev:hover,

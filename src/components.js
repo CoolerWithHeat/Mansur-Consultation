@@ -1,22 +1,13 @@
 import React, {forwardRef} from 'react';
 import {
+    Code_Signing,
     consultation,
     teamwork,
     codeImage,
     goalsImage,
-    firstImage,
-    secondImage,
-    thirdImage,
+    Main1,
+    Main2,
     forthImage,
-    fifthImage,
-    sixthImage,
-    seventhImage,
-    eighthImage,
-    tenthImage,
-    eleventhImage,
-    twelvethImage,
-    thirteenthImage,
-    fifteenthImage,
 } from './images';
 
 import './MainPage/css/style.css'
@@ -185,7 +176,7 @@ export function MainPage(){
             <div id="header-carousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img className="w-100" src={firstImage} alt="Image"/>
+                        <img className="w-100" src={Main1} alt="Image"/>
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div className="p-3" style={{maxWidth: "900px"}}>
                                 <h5 className="text-white text-uppercase">Programming Consultancy</h5>
@@ -196,7 +187,7 @@ export function MainPage(){
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img className="w-100" src={secondImage} alt="Image"/>
+                        <img className="w-100" src={Main2} alt="Image"/>
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div className="p-3" style={{maxWidth: "900px"}}>
                                 <h5 className="text-white text-uppercase">Planning Consultancy</h5>
@@ -234,7 +225,7 @@ export function MainPage(){
                             <div className="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4" style={{width: "60px", height: "60px"}}>
                                 <i className="fa fa-chart-line fs-4">
                                     <div id='imagePoint'>
-                                        <img id='DesctiptionImage' src='https://clickup.com/blog/wp-content/uploads/2021/12/goals.png'/>
+                                        <img id='DesctiptionImage' src={goalsImage}/>
                                     </div>
                                 </i>
                             </div>
@@ -247,7 +238,7 @@ export function MainPage(){
                             <div className="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4" style={{width: "60px", height: "60px"}}>
                                 <i className="fa fa-chart-line fs-4">
                                     <div id='imagePoint'>
-                                        <img id='DesctiptionImage' src='https://www.globalsign.com/application/files/1116/8783/6402/Code_Signing.png'/>
+                                        <img id='DesctiptionImage' src={Code_Signing}/>
                                     </div>
                                 </i>
                                 

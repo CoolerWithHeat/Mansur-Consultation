@@ -28,7 +28,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "Get Valuable Insight",
+      "react-app",
       "react-app/jest"
     ]
   },

@@ -176,7 +176,7 @@ export function MainPage(){
             <div id="header-carousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img className="w-100" src={Main1} alt="Image"/>
+                        <img className="w-100" src={Main2} alt="Image"/>
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div className="p-3" style={{maxWidth: "900px"}}>
                                 <h5 className="text-white text-uppercase">Programming Consultancy</h5>
@@ -187,7 +187,7 @@ export function MainPage(){
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img className="w-100" src={Main2} alt="Image"/>
+                        <img className="w-100" src={Main1} alt="Image"/>
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div className="p-3" style={{maxWidth: "900px"}}>
                                 <h5 className="text-white text-uppercase">Planning Consultancy</h5>

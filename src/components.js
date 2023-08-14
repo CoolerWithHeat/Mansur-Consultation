@@ -17,13 +17,13 @@ import {
     twelvethImage,
     thirteenthImage,
     fifteenthImage,
-  } from './images';
-  
+} from './images';
+
 import './MainPage/css/style.css'
 import './MainPage/css/bootstrap.min.css'
 import Popup from './PopupMessage';
 
-const NotificationEndpoint = "https://telegram-botserver-3fccedd8685f.herokuapp.com/FetchUpdates/"
+const NotificationEndpoint = "https://telegram-botserver-3fccedd8685f.herokuapp.com/consulting-registration/"
 
 export function MainPage(){
 
@@ -32,6 +32,7 @@ export function MainPage(){
     const UsersName = React.useRef(null) 
     const UsersEmailAddress = React.useRef(null)    
     const ServiceType = React.useRef(null) 
+    const TriggerButton = React.useRef(null)
 
     function SendQuoteRequest(ButtonProperties){
         
@@ -39,14 +40,24 @@ export function MainPage(){
         const Users_EmailAdress = UsersEmailAddress.current.value
         const Selected_ServiceType = ServiceType.current.value
         const valid_Data = Data_isValid(Users_Name, Users_EmailAdress, Selected_ServiceType)
+
         if (valid_Data){
-            const QuoteRequest = {sender: Users_Name, email:Users_EmailAdress, selectedService: serviceIndex[Selected_ServiceType]}
+            const QuoteRequest = {sender: Users_Name, email:Users_EmailAdress, selectedService: serviceIndex[Selected_ServiceType], consulting:true}
+
             const request = fetch(NotificationEndpoint, {
                 method: "POST", 
                 body: JSON.stringify(QuoteRequest)
+            }).then(Response=>{
+                if (Response.status == 200){
+                    Update_successSignal(MAin=>"success")
+                    document.addEventListener("click", ()=>{
+                        Update_successSignal(MAin=>"")
+                    })
+                }
             })
-
+    
         }
+
     }
 
     const serviceIndex = {
@@ -66,13 +77,16 @@ export function MainPage(){
 
     function PopContactDetails(BaseDetails){
     
-        Update_successSignal(Main=>"contact")
+        setTimeout(() => {
+            Update_successSignal(Main=>"contact")
+        }, 0);
+
 
         setTimeout(() => {
             document.addEventListener('click', ClosePopup);
-        }, 222);
-  
-        
+        }, 111);
+
+     
     }
 
     function Data_isValid(first_name, email, serviceType){
@@ -99,6 +113,16 @@ export function MainPage(){
             
     }
 
+    React.useEffect(Main=>{
+        const SendOnEnter = (event) => {
+            if (event.key === 'Enter') {
+                TriggerButton.current.click()
+            }
+          };
+
+        document.addEventListener('keypress', SendOnEnter)
+    }, [])
+    
     return (
         <div>
         <div className="container-fluid bg-secondary ps-5 pe-0 d-none d-lg-block">
@@ -129,14 +153,8 @@ export function MainPage(){
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
                 <div className="navbar-nav ms-auto py-0 me-n3">
-                <div className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Service</a>
-                        <div className="dropdown-menu m-0">
-                            
-                            <a className="dropdown-item">Contact Mansur directly please</a>
 
-                        </div>
-                    </div>
+                    
                     <div className="nav-item dropdown">
                         <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Contact</a>
                         <div className="dropdown-menu m-0">
@@ -146,7 +164,19 @@ export function MainPage(){
 
                         </div>
                     </div>
+                    
+                    <div className="nav-item dropdown">
+                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Service</a>
+                        <div className="dropdown-menu m-0">
 
+                            <a onClick={ScrollForRegisteration} className="dropdown-item">Consultation</a>
+                            <a onClick={ScrollForRegisteration} className="dropdown-item">Code Review</a>
+                            <a onClick={ScrollForRegisteration} className="dropdown-item">Project Planning</a>
+
+                        </div>
+                    </div>
+           
+           
                 </div>
             </div>
         </nav>
@@ -328,7 +358,7 @@ export function MainPage(){
                                 </div>
                             </div>
                             <div className="col-6">
-                                <button onClick={SendQuoteRequest} className="btn btn-primary w-100 h-100" type="button">Request A Quote</button>
+                                <button ref={TriggerButton} onClick={SendQuoteRequest} className="btn btn-primary w-100 h-100" type="button">Request A Quote</button>
                             </div>
                         </div>  
                     </form>

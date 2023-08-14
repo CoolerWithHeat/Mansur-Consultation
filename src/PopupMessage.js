@@ -5,10 +5,12 @@ import email from './MainPage/img/email.png'
 import phone from './MainPage/img/phone.png'
 
 function Popup(PopupProperties) {
+    
     const eventType = {
-        success: <SuccessMessage/>,
-        contact: <ContactDetails/>
+        success: SuccessMessage,
+        contact: ContactDetails,
     }
+
     function SuccessMessage(){
         return (
             <div className="popup-content">
@@ -16,6 +18,7 @@ function Popup(PopupProperties) {
                 <br/>
                 <br/>
                 <p>Successfully Completed !</p>
+                {PopupProperties.type === "success" ? <p>I will contact you soon :)</p> : null}
             </div>
         )
     }
@@ -41,7 +44,7 @@ function Popup(PopupProperties) {
 
     return (
         <div className="popup contact-details">
-            {eventType[PopupProperties.type]}
+            {eventType[PopupProperties.type]()}
         </div>
     );
 }
